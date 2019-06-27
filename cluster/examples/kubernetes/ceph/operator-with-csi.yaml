@@ -38,7 +38,11 @@ spec:
         - name: ROOK_CURRENT_NAMESPACE_ONLY
           value: "true"
         - name: FLEXVOLUME_DIR_PATH
-          value: "/var/lib/kubelet/volumeplugins/"
+          value: "/etc/kubernetes/kubelet-plugins/volume/exec"
+        # - name: ROOK_HOSTPATH_REQUIRES_PRIVILEGED
+        #   value: "true"
+        - name: ROOK_LOG_LEVEL
+          value: INFO
           # CSI enablement
         - name: ROOK_CSI_ENABLE_CEPHFS
           value: "true"
@@ -56,6 +60,8 @@ spec:
           value: "quay.io/k8scsi/csi-snapshotter:v1.0.1"
         - name: ROOK_CSI_ATTACHER_IMAGE
           value: "quay.io/k8scsi/csi-attacher:v1.0.1"
+        - name: ROOK_FOO
+          value: "baz"
         # The name of the node to pass with the downward API
         - name: NODE_NAME
           valueFrom:
